@@ -37,20 +37,20 @@ export default function Home() {
     offset: ['start start', 'end end']
   });
   
-  // Auto-complete zoom once scrolling starts
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (latest) => {
-      if (latest > 0.3 && !zoomTriggered) {
-        setZoomTriggered(true);
-        // Smoothly animate to full zoom with very smooth easing
-        animate(zoomProgress, 1, {
-          duration: 3.5,
-          ease: [0.16, 1, 0.3, 1], // Very smooth, cinematic easing
+      // Auto-complete zoom once scrolling starts
+      useEffect(() => {
+        const unsubscribe = scrollYProgress.on('change', (latest) => {
+          if (latest > 0.1 && !zoomTriggered) {
+            setZoomTriggered(true);
+            // Smoothly animate to full zoom with very smooth easing - slower and smoother
+            animate(zoomProgress, 1, {
+              duration: 5,
+              ease: [0.12, 0.8, 0.2, 1], // Slower, smoother cinematic easing
+            });
+          }
         });
-      }
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress, zoomTriggered, zoomProgress]);
+        return () => unsubscribe();
+      }, [scrollYProgress, zoomTriggered, zoomProgress]);
   
   // Combine scroll progress with auto zoom progress
   const combinedProgress = useTransform(
@@ -58,27 +58,27 @@ export default function Home() {
     ([scroll, auto]) => Math.max(scroll, auto)
   );
 
-  // Phase 1: Landing page visible (0 to 0.3 scroll)
-  const heroOpacity = useTransform(combinedProgress, [0, 0.25, 0.75], [1, 1, 0]);
-  
-  // Phase 2: Zoom into LOVE to reveal message (0.3 to 0.7 scroll) - smoother transition
-  // The zoom should happen on the hero section, revealing the message behind it
-  const heroZoom = useTransform(combinedProgress, [0.3, 0.45, 0.6, 0.7], [1, 1.8, 3, 5], {
-    clamp: true,
-  });
-  const messageOpacity = useTransform(combinedProgress, [0.4, 0.55, 0.7], [0, 0.5, 1]);
-  
-  // Phase 3: Slide transition - message page left, messages from right (0.7 to 1 scroll)
-  // Only based on scroll, not auto-complete
-  const messagePageX = useTransform(scrollYProgress, [0.7, 0.85, 1], [0, -100, -100]);
-  const messagesPageX = useTransform(scrollYProgress, [0.7, 0.85, 1], [100, 0, 0]);
+      // Phase 1: Landing page visible (0 to 0.1 scroll)
+      const heroOpacity = useTransform(combinedProgress, [0, 0.08, 0.3], [1, 1, 0]);
+
+      // Phase 2: Zoom into LOVE to reveal message (0.1 to 0.3 scroll) - smoother, slower transition
+      // The zoom should happen on the hero section, revealing the message behind it
+      const heroZoom = useTransform(combinedProgress, [0.1, 0.14, 0.18, 0.22, 0.26, 0.3], [1, 1.5, 2.2, 3.2, 4.2, 5.5], {
+        clamp: true,
+      });
+      const messageOpacity = useTransform(combinedProgress, [0.12, 0.16, 0.2, 0.24, 0.3], [0, 0.2, 0.4, 0.7, 1]);
+
+      // Phase 3: Slide transition - message page left, messages from right (0.3 to 0.6 scroll)
+      // Only based on scroll, not auto-complete
+      const messagePageX = useTransform(scrollYProgress, [0.3, 0.45, 0.6], [0, -100, -100]);
+      const messagesPageX = useTransform(scrollYProgress, [0.3, 0.45, 0.6], [100, 0, 0]);
   
   // Convert to percentage strings for CSS
   const messagePageXPercent = useTransform(messagePageX, (v) => `${v}%`);
   const messagesPageXPercent = useTransform(messagesPageX, (v) => `${v}%`);
   
-  // LOVE stays visible during zoom
-  const loveOpacity = useTransform(combinedProgress, [0, 0.3, 0.7], [1, 1, 0]);
+      // LOVE stays visible during zoom
+      const loveOpacity = useTransform(combinedProgress, [0, 0.1, 0.3], [1, 1, 0]);
 
   // Track scroll in messages container to update visible message
   useEffect(() => {
@@ -136,7 +136,7 @@ export default function Home() {
   return (
     <div 
       ref={containerRef}
-      className="min-h-[400vh] bg-gradient-to-br from-rose-50 via-amber-50 to-warm-gray-50 relative"
+          className="min-h-[250vh] bg-gradient-to-br from-rose-50 via-amber-50 to-warm-gray-50 relative"
       style={{
         scrollbarWidth: 'none',
         msOverflowStyle: 'none',
