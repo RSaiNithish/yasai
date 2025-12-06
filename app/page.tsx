@@ -1,10 +1,14 @@
 'use client';
 
-import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, useMotionValue, animate, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { fadeIn, slideUp, staggerContainer, textReveal } from '@/lib/animations';
+import { fadeIn, slideUp, staggerContainer, textReveal, messageTransition } from '@/lib/animations';
+import { getMessages } from '@/lib/data';
+import MessageCard from '@/components/messages/MessageCard';
+import MessageModal from '@/components/messages/MessageModal';
+import { Message } from '@/types';
 
 export default function Home() {
   const [password, setPassword] = useState('');
@@ -12,10 +16,23 @@ export default function Home() {
   const [particles, setParticles] = useState<Array<{ width: number; height: number; left: number; top: number; color: string; x: number; duration: number; delay: number }>>([]);
   const [isMounted, setIsMounted] = useState(false);
   const [zoomTriggered, setZoomTriggered] = useState(false);
+  const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
+  const [visibleMessageIndex, setVisibleMessageIndex] = useState(0);
   const sitePassword = process.env.NEXT_PUBLIC_SITE_PASSWORD || '';
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const zoomProgress = useMotionValue(0);
+  
+  // Get messages for embedded messages page
+  const allMessages = getMessages();
+  const sortedMessages = useMemo(() => {
+    return [...allMessages].sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateB - dateA;
+    });
+  }, [allMessages]);
   const { scrollYProgress } = useScroll({
     offset: ['start start', 'end end']
   });
@@ -44,15 +61,24 @@ export default function Home() {
   // Phase 1: Landing page visible (0 to 0.3 scroll)
   const heroOpacity = useTransform(combinedProgress, [0, 0.25, 0.75], [1, 1, 0]);
   
-  // Phase 2: Zoom into LOVE to reveal message (0.3 to 1 scroll) - smoother transition
+  // Phase 2: Zoom into LOVE to reveal message (0.3 to 0.7 scroll) - smoother transition
   // The zoom should happen on the hero section, revealing the message behind it
-  const heroZoom = useTransform(combinedProgress, [0.3, 0.45, 0.6, 0.75, 0.9, 1], [1, 1.8, 3, 5, 6.5, 8], {
+  const heroZoom = useTransform(combinedProgress, [0.3, 0.45, 0.6, 0.7], [1, 1.8, 3, 5], {
     clamp: true,
   });
-  const messageOpacity = useTransform(combinedProgress, [0.4, 0.55, 0.7, 0.85, 1], [0, 0.2, 0.5, 0.85, 1]);
+  const messageOpacity = useTransform(combinedProgress, [0.4, 0.55, 0.7], [0, 0.5, 1]);
+  
+  // Phase 3: Slide transition - message page left, messages from right (0.7 to 1 scroll)
+  // Only based on scroll, not auto-complete
+  const messagePageX = useTransform(scrollYProgress, [0.7, 0.85, 1], [0, -100, -100]);
+  const messagesPageX = useTransform(scrollYProgress, [0.7, 0.85, 1], [100, 0, 0]);
+  
+  // Convert to percentage strings for CSS
+  const messagePageXPercent = useTransform(messagePageX, (v) => `${v}%`);
+  const messagesPageXPercent = useTransform(messagesPageX, (v) => `${v}%`);
   
   // LOVE stays visible during zoom
-  const loveOpacity = useTransform(combinedProgress, [0, 0.3, 0.85], [1, 1, 0]);
+  const loveOpacity = useTransform(combinedProgress, [0, 0.3, 0.7], [1, 1, 0]);
 
   // Generate particles only on client side to avoid hydration mismatch
   useEffect(() => {
@@ -500,10 +526,11 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      {/* Message from daughters - Revealed by zoom into LOVE */}
+      {/* Message from daughters - Revealed by zoom into LOVE, then slides left */}
       <motion.div
         style={{
           opacity: messageOpacity,
+          x: messagePageXPercent,
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
         }}
@@ -601,6 +628,120 @@ export default function Home() {
             </p>
           </motion.div>
         </div>
+      </motion.div>
+
+      {/* Messages Page - Slides in from right */}
+      <motion.div
+        style={{
+          x: messagesPageXPercent,
+        }}
+        className="fixed inset-0 z-30 h-screen w-screen bg-gradient-to-br from-neutral-50 via-rose-50/30 to-amber-50/20 overflow-hidden"
+      >
+        {/* Messages Page Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{
+              background: [
+                'radial-gradient(circle at 20% 30%, rgba(244, 63, 94, 0.08), transparent 50%)',
+                'radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.06), transparent 50%)',
+                'radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.08), transparent 50%)',
+              ],
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          />
+          <motion.div
+            animate={{
+              background: [
+                'radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.06), transparent 50%)',
+                'radial-gradient(circle at 20% 80%, rgba(244, 63, 94, 0.08), transparent 50%)',
+                'radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.06), transparent 50%)',
+              ],
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          />
+        </div>
+
+        {/* Messages Page Header */}
+        <motion.header
+          className="sticky top-0 z-50 glass border-b border-white/20 px-8 py-6"
+        >
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <Link href="/" className="text-lg font-semibold text-neutral-700 hover:text-neutral-900 transition-colors flex items-center gap-2">
+              ← Home
+            </Link>
+            <div className="flex items-center gap-8">
+              {['Journey', 'Videos', 'Surprise'].map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item.toLowerCase()}`}
+                  className="text-neutral-600 hover:text-neutral-900 transition-colors font-medium text-sm uppercase tracking-wider"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </motion.header>
+
+        {/* Messages Page Main Content */}
+        <div className="max-w-7xl mx-auto px-8 py-16 flex-1 overflow-y-auto scrollbar-hide">
+          <motion.div className="text-center mb-16">
+            <motion.h1
+              className="text-7xl md:text-8xl font-bold text-neutral-900 mb-6 tracking-tight"
+            >
+              Messages
+            </motion.h1>
+            <motion.p
+              className="text-xl text-neutral-600 font-light tracking-wide"
+            >
+              Wishes from friends & family
+            </motion.p>
+          </motion.div>
+
+          {/* Single Message View with Scroll */}
+          <div
+            ref={messagesContainerRef}
+            className="relative h-[80vh] overflow-y-scroll scrollbar-hide snap-y snap-mandatory"
+            style={{ scrollSnapType: 'y mandatory' }}
+          >
+            {sortedMessages.map((message, index) => {
+              const isVisible = index === visibleMessageIndex;
+              
+              return (
+                <section
+                  key={message.id}
+                  className="h-[80vh] snap-start snap-always flex items-center justify-center px-4"
+                >
+                  <AnimatePresence mode="wait">
+                    {isVisible && (
+                      <motion.div
+                        variants={messageTransition}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        className="w-full max-w-5xl"
+                      >
+                        <MessageCard
+                          message={message}
+                          onClick={() => setSelectedMessage(message)}
+                          isFeatured
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </section>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Message Modal */}
+        <MessageModal
+          message={selectedMessage}
+          onClose={() => setSelectedMessage(null)}
+        />
       </motion.div>
     </div>
   );
