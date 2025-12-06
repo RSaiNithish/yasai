@@ -1,0 +1,212 @@
+[
+  {
+    "id": "msg-1",
+    "author": "Sarah Johnson",
+    "relation": "Best Friend",
+    "text": "Congratulations on 25 amazing years! I've watched your love story unfold from the very beginning, and it's been an honor to witness such a beautiful partnership. Here's to many more years of happiness!",
+    "chapterId": "first-meeting",
+    "date": "2024-08-01T10:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-2",
+    "author": "Michael Chen",
+    "relation": "Brother",
+    "text": "Happy 25th Anniversary! You two are an inspiration to us all. Your love, patience, and commitment to each other is truly remarkable. Wishing you endless joy and adventures ahead!",
+    "chapterId": "wedding",
+    "date": "2024-08-02T14:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-3",
+    "author": "Emily Rodriguez",
+    "relation": "Sister",
+    "text": "25 years of love, laughter, and beautiful memories! You've shown us what true partnership looks like. May your journey continue to be filled with happiness and love.",
+    "date": "2024-08-03T09:15:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-4",
+    "author": "David Thompson",
+    "relation": "College Friend",
+    "text": "I remember when you first met—the way you looked at each other, I knew it was something special. 25 years later, that spark is still there. Congratulations!",
+    "chapterId": "first-meeting",
+    "date": "2024-08-04T16:45:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-5",
+    "author": "Lisa Anderson",
+    "relation": "Neighbor",
+    "text": "Happy Anniversary! Your love story is a beautiful reminder that true love exists and grows stronger with time. Wishing you both continued happiness!",
+    "date": "2024-08-05T11:20:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-6",
+    "author": "Robert Williams",
+    "relation": "Cousin",
+    "text": "25 years of building a life together—what an achievement! Your commitment to each other through thick and thin is truly admirable. Here's to many more wonderful years!",
+    "chapterId": "milestones",
+    "date": "2024-08-06T13:10:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-7",
+    "author": "Jennifer Martinez",
+    "relation": "Friend",
+    "text": "Congratulations on this incredible milestone! Your love has always been evident to everyone around you. May the next 25 years be even more amazing!",
+    "date": "2024-08-07T15:30:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-8",
+    "author": "James Wilson",
+    "relation": "Work Colleague",
+    "text": "Happy 25th Anniversary! It's been wonderful to see your partnership flourish over the years. Your love story is truly inspiring. Best wishes for the future!",
+    "date": "2024-08-08T10:00:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-9",
+    "author": "Patricia Brown",
+    "relation": "Aunt",
+    "text": "I've watched you two grow together over these 25 years, and it fills my heart with joy. Your love is a beautiful example for everyone. Congratulations!",
+    "chapterId": "wedding",
+    "date": "2024-08-09T12:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-10",
+    "author": "Christopher Lee",
+    "relation": "Friend",
+    "text": "25 years! What an incredible journey. Your love has weathered every storm and celebrated every joy. Here's to the next chapter of your beautiful story!",
+    "date": "2024-08-10T09:30:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-11",
+    "author": "Amanda Taylor",
+    "relation": "Sister-in-Law",
+    "text": "Happy Anniversary! You two are proof that true love exists and grows stronger every day. Wishing you endless happiness and beautiful memories ahead!",
+    "chapterId": "adventures",
+    "date": "2024-08-11T14:20:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-12",
+    "author": "Thomas Garcia",
+    "relation": "Uncle",
+    "text": "Congratulations on 25 wonderful years together! Your partnership has been a joy to witness. May your love continue to flourish for many more years!",
+    "date": "2024-08-12T11:15:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-13",
+    "author": "Nicole White",
+    "relation": "Friend",
+    "text": "25 years of love, laughter, and beautiful moments! You've created something truly special together. Here's to celebrating this amazing milestone!",
+    "date": "2024-08-13T16:00:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-14",
+    "author": "Daniel Harris",
+    "relation": "Best Man",
+    "text": "I had the honor of standing by your side on your wedding day, and I'm so proud to celebrate 25 years with you. Your love story is extraordinary!",
+    "chapterId": "wedding",
+    "date": "2024-08-14T10:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-15",
+    "author": "Michelle Clark",
+    "relation": "Maid of Honor",
+    "text": "From the wedding day to today, I've watched your love grow and deepen. 25 years is a testament to your commitment and love for each other. Congratulations!",
+    "chapterId": "wedding",
+    "date": "2024-08-15T13:45:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-16",
+    "author": "Kevin Young",
+    "relation": "Friend",
+    "text": "Happy 25th Anniversary! Your journey together has been beautiful to witness. May the years ahead be filled with even more love and happiness!",
+    "date": "2024-08-16T15:20:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-17",
+    "author": "Rachel King",
+    "relation": "Friend",
+    "text": "Congratulations on this incredible milestone! 25 years of partnership, love, and beautiful memories. You two are an inspiration to us all!",
+    "date": "2024-08-17T09:00:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-18",
+    "author": "Mark Scott",
+    "relation": "Brother-in-Law",
+    "text": "Happy Anniversary! Your love story has been a joy to be part of. Here's to 25 more years of happiness, adventures, and beautiful moments together!",
+    "chapterId": "adventures",
+    "date": "2024-08-18T12:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-19",
+    "author": "Laura Green",
+    "relation": "Friend",
+    "text": "25 years of building a life together—what an achievement! Your love and commitment to each other is truly remarkable. Congratulations!",
+    "date": "2024-08-19T14:15:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-20",
+    "author": "Steven Adams",
+    "relation": "Cousin",
+    "text": "Happy 25th Anniversary! Your partnership has been a beautiful example of love, patience, and commitment. Wishing you many more wonderful years together!",
+    "date": "2024-08-20T11:00:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-21",
+    "author": "Karen Baker",
+    "relation": "Aunt",
+    "text": "Congratulations on 25 amazing years! I've watched your love grow from the beginning, and it's been wonderful to see. Here's to many more years of happiness!",
+    "chapterId": "first-date",
+    "date": "2024-08-21T10:45:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-22",
+    "author": "Brian Nelson",
+    "relation": "Friend",
+    "text": "25 years together—what an incredible journey! Your love story is inspiring and beautiful. May the next chapter be filled with even more joy and adventures!",
+    "date": "2024-08-22T15:30:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-23",
+    "author": "Sandra Hill",
+    "relation": "Friend",
+    "text": "Happy Anniversary! Your commitment to each other through all these years is truly admirable. Wishing you continued happiness and love!",
+    "date": "2024-08-23T13:20:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-24",
+    "author": "Paul Carter",
+    "relation": "Friend",
+    "text": "Congratulations on 25 wonderful years! Your love has always been evident, and it's been a joy to witness your journey together. Here's to many more!",
+    "date": "2024-08-24T09:15:00Z",
+    "curated": false
+  },
+  {
+    "id": "msg-25",
+    "author": "Donna Mitchell",
+    "relation": "Friend",
+    "text": "25 years of love, laughter, and beautiful memories! You've shown us what true partnership looks like. May your journey continue to be amazing!",
+    "date": "2024-08-25T11:30:00Z",
+    "curated": false
+  }
+]

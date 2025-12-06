@@ -1,0 +1,129 @@
+[
+  {
+    "id": "first-meeting",
+    "title": "The First Meeting",
+    "date": "1999-06-15T00:00:00Z",
+    "text": "It was a warm summer evening when our paths first crossed. A chance encounter at a friend's party, and suddenly the world felt a little brighter. Little did we know, this was just the beginning of an incredible journey together.",
+    "photos": [
+      "/images/placeholder-1.jpg",
+      "/images/placeholder-2.jpg"
+    ],
+    "interactionType": "flip",
+    "place": "Downtown Café",
+    "layoutHint": "two-column-left"
+  },
+  {
+    "id": "first-date",
+    "title": "The First Date",
+    "date": "1999-07-20T00:00:00Z",
+    "text": "Nervous butterflies and endless conversations. We talked for hours, losing track of time. That first date felt like coming home, even though we were just getting to know each other.",
+    "photos": [
+      "/images/placeholder-3.jpg"
+    ],
+    "interactionType": "slider",
+    "place": "Riverside Park",
+    "layoutHint": "centered"
+  },
+  {
+    "id": "falling-in-love",
+    "title": "Falling in Love",
+    "date": "1999-10-12T00:00:00Z",
+    "text": "Autumn leaves were falling, and so were we—head over heels. Every moment together felt magical. The way you laugh, the way you care, it all clicked into place.",
+    "photos": [
+      "/images/placeholder-4.jpg",
+      "/images/placeholder-5.jpg",
+      "/images/placeholder-6.jpg"
+    ],
+    "interactionType": "quiz",
+    "quiz": {
+      "question": "Where did we have our first kiss?",
+      "options": ["Under the stars", "At the movies", "In the park", "At home"],
+      "answerIndex": 0
+    },
+    "layoutHint": "full-bleed"
+  },
+  {
+    "id": "engagement",
+    "title": "The Proposal",
+    "date": "2001-05-14T00:00:00Z",
+    "text": "On bended knee, with trembling hands and a heart full of love, I asked the most important question of my life. Your 'yes' changed everything, and we began planning our forever.",
+    "photos": [
+      "/images/placeholder-7.jpg",
+      "/images/placeholder-8.jpg"
+    ],
+    "interactionType": "flip",
+    "place": "Sunset Beach",
+    "layoutHint": "two-column-right"
+  },
+  {
+    "id": "wedding",
+    "title": "Our Wedding Day",
+    "date": "2002-08-10T00:00:00Z",
+    "text": "The day we became one. Surrounded by family and friends, we promised to love, honor, and cherish each other. The most beautiful day of our lives, filled with joy, laughter, and endless love.",
+    "photos": [
+      "/images/placeholder-9.jpg",
+      "/images/placeholder-10.jpg",
+      "/images/placeholder-11.jpg",
+      "/images/placeholder-12.jpg"
+    ],
+    "interactionType": "slider",
+    "place": "Garden Venue",
+    "layoutHint": "full-bleed"
+  },
+  {
+    "id": "first-home",
+    "title": "Our First Home",
+    "date": "2003-03-22T00:00:00Z",
+    "text": "The keys to our first home together. Empty rooms filled with dreams, walls waiting for memories. We painted, decorated, and made it ours—a place where love would grow and flourish.",
+    "photos": [
+      "/images/placeholder-13.jpg",
+      "/images/placeholder-14.jpg"
+    ],
+    "interactionType": "none",
+    "place": "Maple Street",
+    "layoutHint": "centered"
+  },
+  {
+    "id": "adventures",
+    "title": "Adventures Together",
+    "date": "2005-09-15T00:00:00Z",
+    "text": "From mountain peaks to ocean shores, we've explored the world hand in hand. Every trip, every adventure, every sunset watched together has been a chapter in our love story.",
+    "photos": [
+      "/images/placeholder-15.jpg",
+      "/images/placeholder-16.jpg",
+      "/images/placeholder-17.jpg"
+    ],
+    "interactionType": "quiz",
+    "quiz": {
+      "question": "What was our favorite travel destination?",
+      "options": ["Paris", "Tokyo", "Bali", "New York"],
+      "answerIndex": 2
+    },
+    "layoutHint": "two-column-left"
+  },
+  {
+    "id": "milestones",
+    "title": "Life's Milestones",
+    "date": "2010-06-01T00:00:00Z",
+    "text": "Through career changes, new beginnings, and life's ups and downs, we've been each other's constant. Every challenge faced together made us stronger, every joy shared made us happier.",
+    "photos": [
+      "/images/placeholder-18.jpg",
+      "/images/placeholder-19.jpg"
+    ],
+    "interactionType": "flip",
+    "layoutHint": "centered"
+  },
+  {
+    "id": "today",
+    "title": "25 Years Later",
+    "date": "2024-08-10T00:00:00Z",
+    "text": "Here we are, 25 years later. Still laughing, still loving, still choosing each other every single day. Our journey has been filled with countless beautiful moments, and we're excited for all the chapters yet to come.",
+    "photos": [
+      "/images/placeholder-20.jpg",
+      "/images/placeholder-21.jpg",
+      "/images/placeholder-22.jpg"
+    ],
+    "interactionType": "none",
+    "layoutHint": "full-bleed"
+  }
+]

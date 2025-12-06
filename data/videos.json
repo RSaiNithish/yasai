@@ -1,0 +1,38 @@
+[
+  {
+    "id": "video-1",
+    "author": "Sarah Johnson",
+    "thumbnail": "/videos/thumbnail-1.jpg",
+    "videoUrl": "/videos/video-1.mp4",
+    "durationSec": 120,
+    "date": "2024-08-01T10:00:00Z",
+    "transcript": "Hi! I'm Sarah, and I've been friends with you both for over 25 years. I remember when you first met, and I just wanted to say congratulations on this incredible milestone. Your love story has been beautiful to watch unfold."
+  },
+  {
+    "id": "video-2",
+    "author": "Michael Chen",
+    "thumbnail": "/videos/thumbnail-2.jpg",
+    "videoUrl": "/videos/video-2.mp4",
+    "durationSec": 95,
+    "date": "2024-08-02T14:30:00Z",
+    "transcript": "Hey everyone! Michael here. I just wanted to send my heartfelt congratulations on your 25th anniversary. You two are an inspiration, and I'm so grateful to have you in my life. Here's to many more years of happiness!"
+  },
+  {
+    "id": "video-3",
+    "author": "Emily Rodriguez",
+    "thumbnail": "/videos/thumbnail-3.jpg",
+    "videoUrl": "/videos/video-3.mp4",
+    "durationSec": 110,
+    "date": "2024-08-03T09:15:00Z",
+    "transcript": "Happy 25th Anniversary! I've watched your love grow and deepen over the years, and it's been such a joy. Your partnership is truly special, and I wish you all the happiness in the world for the years to come."
+  },
+  {
+    "id": "video-4",
+    "author": "Daniel Harris",
+    "thumbnail": "/videos/thumbnail-4.jpg",
+    "videoUrl": "/videos/video-4.mp4",
+    "durationSec": 105,
+    "date": "2024-08-14T10:30:00Z",
+    "transcript": "I had the honor of being your best man 25 years ago, and I'm so proud to celebrate this milestone with you. Your love story is extraordinary, and I'm grateful to have been part of it. Congratulations!"
+  }
+]
