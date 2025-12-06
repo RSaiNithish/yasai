@@ -80,6 +80,34 @@ export default function Home() {
   // LOVE stays visible during zoom
   const loveOpacity = useTransform(combinedProgress, [0, 0.3, 0.7], [1, 1, 0]);
 
+  // Track scroll in messages container to update visible message
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!messagesContainerRef.current) return;
+      const container = messagesContainerRef.current;
+      const scrollTop = container.scrollTop;
+      const sectionHeight = container.clientHeight;
+      
+      // Calculate which section is currently in view
+      const currentSection = Math.round(scrollTop / sectionHeight);
+      const newIndex = Math.min(
+        Math.max(0, currentSection),
+        sortedMessages.length - 1
+      );
+      
+      if (newIndex !== visibleMessageIndex && newIndex >= 0 && newIndex < sortedMessages.length) {
+        setVisibleMessageIndex(newIndex);
+      }
+    };
+
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, [sortedMessages.length, visibleMessageIndex]);
+
   // Generate particles only on client side to avoid hydration mismatch
   useEffect(() => {
     setIsMounted(true);
@@ -635,7 +663,7 @@ export default function Home() {
         style={{
           x: messagesPageXPercent,
         }}
-        className="fixed inset-0 z-30 h-screen w-screen bg-gradient-to-br from-neutral-50 via-rose-50/30 to-amber-50/20 overflow-hidden"
+        className="fixed inset-0 z-30 h-screen w-screen bg-gradient-to-br from-neutral-50 via-rose-50/30 to-amber-50/20 overflow-y-auto scrollbar-hide"
       >
         {/* Messages Page Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -686,7 +714,7 @@ export default function Home() {
         </motion.header>
 
         {/* Messages Page Main Content */}
-        <div className="max-w-7xl mx-auto px-8 py-16 flex-1 overflow-y-auto scrollbar-hide">
+        <div className="max-w-7xl mx-auto px-8 py-16 min-h-full">
           <motion.div className="text-center mb-16">
             <motion.h1
               className="text-7xl md:text-8xl font-bold text-neutral-900 mb-6 tracking-tight"
@@ -700,7 +728,7 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* Single Message View with Scroll */}
+          {/* Messages List - Same structure as messages page */}
           <div
             ref={messagesContainerRef}
             className="relative h-[80vh] overflow-y-scroll scrollbar-hide snap-y snap-mandatory"
@@ -714,27 +742,59 @@ export default function Home() {
                   key={message.id}
                   className="h-[80vh] snap-start snap-always flex items-center justify-center px-4"
                 >
-                  <AnimatePresence mode="wait">
+                  <motion.div
+                    variants={messageTransition}
+                    initial="initial"
+                    animate={isVisible ? "animate" : "exit"}
+                    className="w-full max-w-5xl"
+                  >
                     {isVisible && (
-                      <motion.div
-                        variants={messageTransition}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className="w-full max-w-5xl"
-                      >
-                        <MessageCard
-                          message={message}
-                          onClick={() => setSelectedMessage(message)}
-                          isFeatured
-                        />
-                      </motion.div>
+                      <MessageCard
+                        message={message}
+                        onClick={() => setSelectedMessage(message)}
+                        isFeatured
+                      />
                     )}
-                  </AnimatePresence>
+                  </motion.div>
                 </section>
               );
             })}
+
+            {sortedMessages.length === 0 && (
+              <div className="h-[80vh] flex items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center"
+                >
+                  <p className="text-neutral-500 text-xl font-light mb-2">
+                    No messages found
+                  </p>
+                </motion.div>
+              </div>
+            )}
           </div>
+
+          {/* Progress Indicator */}
+          {sortedMessages.length > 1 && (
+            <div className="mt-8 flex items-center justify-center gap-2">
+              {sortedMessages.map((_, index) => (
+                <motion.div
+                  key={index}
+                  className={`h-1 rounded-full transition-all ${
+                    index === visibleMessageIndex
+                      ? 'w-8 bg-gradient-to-r from-rose-500 to-amber-500'
+                      : 'w-1 bg-neutral-300'
+                  }`}
+                  animate={{
+                    width: index === visibleMessageIndex ? 32 : 4,
+                    opacity: index === visibleMessageIndex ? 1 : 0.4,
+                  }}
+                  transition={{ duration: 0.4 }}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Message Modal */}
