@@ -59,14 +59,25 @@ export default function Home() {
   );
 
       // Phase 1: Landing page visible (0 to 0.1 scroll)
-      const heroOpacity = useTransform(combinedProgress, [0, 0.08, 0.3], [1, 1, 0]);
+      const heroOpacity = useTransform(combinedProgress, [0, 0.08, 0.5], [1, 1, 0]);
 
-      // Phase 2: Zoom into LOVE to reveal message (0.1 to 0.3 scroll) - smoother, slower transition
+      // Phase 2: Zoom into LOVE to reveal message (0.1 to 0.5 scroll) - much slower, more dramatic
       // The zoom should happen on the hero section, revealing the message behind it
-      const heroZoom = useTransform(combinedProgress, [0.1, 0.14, 0.18, 0.22, 0.26, 0.3], [1, 1.5, 2.2, 3.2, 4.2, 5.5], {
-        clamp: true,
-      });
-      const messageOpacity = useTransform(combinedProgress, [0.12, 0.16, 0.2, 0.24, 0.3], [0, 0.2, 0.4, 0.7, 1]);
+      const heroZoom = useTransform(combinedProgress, 
+        [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5], 
+        [1, 1.3, 1.7, 2.2, 2.8, 3.5, 4.3, 5.2, 6.5], 
+        {
+          clamp: true,
+        }
+      );
+      const messageOpacity = useTransform(combinedProgress, 
+        [0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5], 
+        [0, 0.1, 0.2, 0.35, 0.5, 0.7, 0.85, 1]
+      );
+      
+      // Add blur effect during zoom for more dramatic effect
+      const heroBlur = useTransform(combinedProgress, [0.1, 0.3, 0.5], [0, 2, 0]);
+      const heroBlurString = useTransform(heroBlur, (blur) => `blur(${blur}px)`);
 
       // Phase 3: Slide transition - message page left, messages from right (0.3 to 0.6 scroll)
       // Only based on scroll, not auto-complete
@@ -78,7 +89,7 @@ export default function Home() {
   const messagesPageXPercent = useTransform(messagesPageX, (v) => `${v}%`);
   
       // LOVE stays visible during zoom
-      const loveOpacity = useTransform(combinedProgress, [0, 0.1, 0.3], [1, 1, 0]);
+      const loveOpacity = useTransform(combinedProgress, [0, 0.1, 0.5], [1, 1, 0]);
 
   // Track scroll in messages container to update visible message
   useEffect(() => {
@@ -150,7 +161,8 @@ export default function Home() {
         style={{ 
           opacity: heroOpacity,
           scale: heroZoom,
-          willChange: 'transform, opacity',
+          filter: heroBlurString,
+          willChange: 'transform, opacity, filter',
           transformOrigin: 'center center',
         }}
         className="fixed inset-0 z-10 h-screen w-screen flex flex-col items-center justify-center px-4"
