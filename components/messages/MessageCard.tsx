@@ -73,6 +73,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
         style={{ 
           transformStyle: 'preserve-3d',
           height: '100%',
+          maxHeight: '100%',
           minHeight: '500px',
           rotateX: rotateX,
           rotateY: finalRotateY,
@@ -82,10 +83,13 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
       >
         {/* Front - Message Only */}
         <motion.div
-          className="absolute inset-0 backface-hidden glass-soft rounded-3xl border border-white/30 shadow-2xl overflow-hidden w-full h-full"
+          className="absolute inset-0 backface-hidden glass-soft rounded-3xl border border-white/30 shadow-2xl w-full h-full flex flex-col"
           style={{ 
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
+            overflow: 'hidden',
+            maxHeight: '100%',
+            paddingBottom: '0.5rem',
           }}
           animate={isHovered && !isFlipped ? {
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.5)',
@@ -94,7 +98,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
         >
           {/* Animated gradient background */}
           <motion.div
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0 opacity-20 pointer-events-none"
             animate={{
               background: [
                 'radial-gradient(circle at 0% 0%, rgba(244, 63, 94, 0.3), transparent)',
@@ -107,42 +111,59 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
 
           {/* Shine effect */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
             initial={{ x: '-100%' }}
             animate={{ x: '100%' }}
             transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
           />
 
-          {/* Message Text Only */}
-          <div className="relative z-10 flex items-center justify-center h-full" style={{ padding: '6rem 5rem' }}>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <motion.p
-                className="text-neutral-700 text-2xl md:text-3xl leading-relaxed font-light"
-              >
-                {message.text}
-              </motion.p>
-              
-              {/* Click hint */}
+          {/* Message Text Only - Scrollable */}
+          <div 
+            className="relative z-10 overflow-y-auto scrollbar-hide" 
+            style={{ 
+              padding: '4rem 5rem',
+              paddingBottom: '5rem',
+              WebkitOverflowScrolling: 'touch',
+              height: '100%',
+              maxHeight: '100%',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col items-center justify-center min-h-full py-8">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="mt-12 flex items-center justify-center gap-2 text-neutral-400 text-sm font-light"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-center w-full"
               >
-                <span>Click to reveal sender</span>
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+                <motion.p
+                  className="text-neutral-700 text-2xl md:text-3xl leading-relaxed font-light whitespace-pre-line text-center"
+                  style={{ 
+                    wordBreak: 'break-word',
+                    lineHeight: '1.8',
+                    paddingBottom: '0.5em',
+                  }}
                 >
-                  →
-                </motion.span>
+                  {message.text}
+                </motion.p>
+                
+                {/* Click hint */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-12 flex items-center justify-center gap-2 text-neutral-400 text-sm font-light flex-shrink-0"
+                >
+                  <span>Click to reveal sender</span>
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Decorative elements - enhanced on hover */}
