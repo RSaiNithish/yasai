@@ -19,7 +19,6 @@ export default function Home() {
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [visibleMessageIndex, setVisibleMessageIndex] = useState(0);
   const messagesScrollProgress = useMotionValue(0);
-  const audioScrollProgress = useMotionValue(0);
   const sitePassword = process.env.NEXT_PUBLIC_SITE_PASSWORD || '';
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
