@@ -26,7 +26,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
   // Combine flip rotation with tilt rotation
   const finalRotateY = useTransform(
     [flipRotation, tiltRotateY],
-    ([flip, tilt]) => flip + tilt
+    (values: number[]) => values[0] + values[1]
   );
 
   // Reset flip state when message changes

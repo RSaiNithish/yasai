@@ -511,8 +511,24 @@ export default function Home() {
           {/* Begin Journey Button - Cinematic reveal */}
           <motion.button
             initial={{ opacity: 0, y: 30, scale: 0.8, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              filter: 'blur(0px)',
+              backgroundPosition: isHovering ? ['0% 50%', '100% 50%', '0% 50%'] : '0% 50%',
+              boxShadow: isHovering
+                ? '0 25px 80px rgba(244, 63, 94, 0.8), 0 0 60px rgba(251, 191, 36, 0.6), 0 0 100px rgba(244, 63, 94, 0.4)'
+                : '0 15px 50px rgba(244, 63, 94, 0.5), 0 0 30px rgba(251, 191, 36, 0.3)',
+            }}
+            transition={{
+              opacity: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
+              y: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
+              scale: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
+              filter: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
+              backgroundPosition: { duration: 2, repeat: Infinity, ease: 'linear' },
+              boxShadow: { duration: 0.4 },
+            }}
             whileHover={{ scale: 1.08, y: -8 }}
             whileTap={{ scale: 0.95 }}
             onMouseEnter={() => setIsHovering(true)}
@@ -521,16 +537,6 @@ export default function Home() {
             className="relative px-12 py-6 bg-gradient-to-r from-rose-500 via-rose-600 to-amber-500 rounded-full text-white font-bold text-xl md:text-2xl shadow-2xl overflow-hidden group"
             style={{
               backgroundSize: '200% 200%',
-            }}
-            animate={{
-              backgroundPosition: isHovering ? ['0% 50%', '100% 50%', '0% 50%'] : '0% 50%',
-              boxShadow: isHovering
-                ? '0 25px 80px rgba(244, 63, 94, 0.8), 0 0 60px rgba(251, 191, 36, 0.6), 0 0 100px rgba(244, 63, 94, 0.4)'
-                : '0 15px 50px rgba(244, 63, 94, 0.5), 0 0 30px rgba(251, 191, 36, 0.3)',
-            }}
-            transition={{
-              backgroundPosition: { duration: 2, repeat: Infinity, ease: 'linear' },
-              boxShadow: { duration: 0.4 },
             }}
           >
             <span className="relative z-10 flex items-center gap-3">
