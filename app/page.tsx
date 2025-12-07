@@ -12,7 +12,6 @@ import { Message, Video, Audio } from '@/types';
 
 export default function Home() {
   const [password, setPassword] = useState('');
-  const [isHovering, setIsHovering] = useState(false);
   const [particles, setParticles] = useState<Array<{ width: number; height: number; left: number; top: number; color: string; x: number; duration: number; delay: number }>>([]);
   const [isMounted, setIsMounted] = useState(false);
   const [zoomTriggered, setZoomTriggered] = useState(false);
@@ -161,7 +160,7 @@ export default function Home() {
   return (
     <div 
       ref={containerRef}
-          className="min-h-[250vh] bg-gradient-to-br from-rose-50 via-amber-50 to-warm-gray-50 relative"
+          className="min-h-[250vh] bg-gradient-to-br from-rose-50 via-amber-50 to-warm-gray-50 relative overflow-x-hidden"
       style={{
         scrollbarWidth: 'none',
         msOverflowStyle: 'none',
@@ -179,7 +178,7 @@ export default function Home() {
           willChange: 'transform, opacity, filter',
           transformOrigin: 'center center',
         }}
-        className="fixed inset-0 z-10 h-screen w-screen flex flex-col items-center justify-center px-4"
+        className="fixed inset-0 z-10 h-screen w-screen flex flex-col items-center justify-center px-4 overflow-x-hidden"
       >
         {/* Hero Text - 25 Years of Love - Cinematic Sequential Animation */}
         <div className="text-center flex flex-col justify-center h-full w-full relative">
@@ -508,57 +507,6 @@ export default function Home() {
             </motion.div>
           )}
 
-          {/* Begin Journey Button - Cinematic reveal */}
-          <motion.button
-            initial={{ opacity: 0, y: 30, scale: 0.8, filter: 'blur(10px)' }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              filter: 'blur(0px)',
-              backgroundPosition: isHovering ? ['0% 50%', '100% 50%', '0% 50%'] : '0% 50%',
-              boxShadow: isHovering
-                ? '0 25px 80px rgba(244, 63, 94, 0.8), 0 0 60px rgba(251, 191, 36, 0.6), 0 0 100px rgba(244, 63, 94, 0.4)'
-                : '0 15px 50px rgba(244, 63, 94, 0.5), 0 0 30px rgba(251, 191, 36, 0.3)',
-            }}
-            transition={{
-              opacity: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
-              y: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
-              scale: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
-              filter: { duration: 1.5, delay: 6.5, ease: [0.16, 1, 0.3, 1] },
-              backgroundPosition: { duration: 2, repeat: Infinity, ease: 'linear' },
-              boxShadow: { duration: 0.4 },
-            }}
-            whileHover={{ scale: 1.08, y: -8 }}
-            whileTap={{ scale: 0.95 }}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            onClick={handleBegin}
-            className="relative px-12 py-6 bg-gradient-to-r from-rose-500 via-rose-600 to-amber-500 rounded-full text-white font-bold text-xl md:text-2xl shadow-2xl overflow-hidden group"
-            style={{
-              backgroundSize: '200% 200%',
-            }}
-          >
-            <span className="relative z-10 flex items-center gap-3">
-              Begin the Journey
-              <motion.span
-                animate={{ x: [0, 8, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                →
-              </motion.span>
-            </span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-amber-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-            {/* Shine sweep on hover */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-              initial={{ x: '-100%' }}
-              animate={isHovering ? { x: '100%' } : { x: '-100%' }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-            />
-          </motion.button>
         </div>
 
         {/* Scroll indicator - Cinematic reveal */}
@@ -594,7 +542,7 @@ export default function Home() {
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
         }}
-        className="fixed inset-0 z-0 w-full h-screen flex flex-col items-center justify-center px-4 overflow-y-auto scrollbar-hide"
+        className="fixed inset-0 z-0 w-full h-screen flex flex-col items-center justify-center px-4 overflow-y-auto overflow-x-hidden scrollbar-hide"
       >
         {/* Subtle background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -695,7 +643,7 @@ export default function Home() {
         style={{
           x: messagesPageXPercent,
         }}
-        className="fixed inset-0 z-30 h-screen w-screen bg-gradient-to-br from-neutral-50 via-rose-50/30 to-amber-50/20 overflow-y-auto scrollbar-hide"
+        className="fixed inset-0 z-30 h-screen w-screen bg-gradient-to-br from-neutral-50 via-rose-50/30 to-amber-50/20 overflow-y-auto overflow-x-hidden scrollbar-hide"
       >
         {/* Messages Page Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
