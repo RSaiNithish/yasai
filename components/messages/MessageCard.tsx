@@ -64,7 +64,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
   };
 
   return (
-    <div className="perspective-1000 w-full max-w-6xl h-full flex items-center justify-center">
+      <div className="perspective-1000 w-full h-full flex items-center justify-center">
       <motion.div
         className="relative w-full cursor-pointer"
         onMouseMove={handleMouseMove}

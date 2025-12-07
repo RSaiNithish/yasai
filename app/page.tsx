@@ -695,7 +695,7 @@ export default function Home() {
         </motion.header>
 
         {/* Messages Page Main Content */}
-        <div className="max-w-7xl mx-auto px-8 py-16 min-h-full flex flex-col items-center">
+        <div className="w-full px-4 md:px-8 py-16 min-h-full flex flex-col items-center">
           <motion.div 
             className="text-center mb-16 w-full"
           >
@@ -714,7 +714,7 @@ export default function Home() {
           {/* Messages List - Same structure as messages page */}
           <motion.div
             ref={messagesContainerRef}
-            className="relative h-[80vh] overflow-y-scroll scrollbar-hide snap-y snap-mandatory w-full max-w-6xl"
+            className="relative h-[80vh] overflow-y-scroll scrollbar-hide snap-y snap-mandatory w-full"
             style={{ 
               scrollSnapType: 'y mandatory',
             }}
@@ -725,13 +725,13 @@ export default function Home() {
               return (
                 <section
                   key={message.id}
-                  className="h-[80vh] snap-start snap-always flex items-center justify-center px-2 md:px-4 w-full"
+                  className="h-[80vh] snap-start snap-always flex items-center justify-center px-4 md:px-8 w-full"
                 >
                   <motion.div
                     variants={messageTransition}
                     initial="initial"
                     animate={isVisible ? "animate" : "exit"}
-                    className="w-full max-w-6xl mx-auto"
+                    className="w-full mx-auto"
                   >
                     {isVisible && (
                       <MessageCard
@@ -787,7 +787,7 @@ export default function Home() {
           {((allAudios && allAudios.length > 0) || (allVideos && allVideos.length > 0)) && (
             <motion.div
               ref={audioSectionRef}
-              className="mt-16 md:mt-20 mb-24 w-full max-w-6xl"
+              className="mt-16 md:mt-20 mb-24 w-full px-4 md:px-8"
               style={{
                 opacity: useTransform(messagesScrollProgress, (v) => {
                   // Only reveal when messages are completely done (at 1.0 progress)
