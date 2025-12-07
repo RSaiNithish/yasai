@@ -1,212 +1,330 @@
 [
   {
     "id": "msg-1",
-    "author": "Sarah Johnson",
-    "relation": "Best Friend",
-    "text": "Congratulations on 25 amazing years! I've watched your love story unfold from the very beginning, and it's been an honor to witness such a beautiful partnership. Here's to many more years of happiness!",
-    "chapterId": "first-meeting",
+    "author": "Deepa",
+    "relation": "Friend",
+    "text": "Wishing you a wonderful silver anniversary ❤️",
     "date": "2024-08-01T10:00:00Z",
     "curated": true
   },
   {
     "id": "msg-2",
-    "author": "Michael Chen",
-    "relation": "Brother",
-    "text": "Happy 25th Anniversary! You two are an inspiration to us all. Your love, patience, and commitment to each other is truly remarkable. Wishing you endless joy and adventures ahead!",
-    "chapterId": "wedding",
+    "author": "Kiran",
+    "relation": "Friend",
+    "text": "Happy anniversary",
     "date": "2024-08-02T14:30:00Z",
     "curated": true
   },
   {
     "id": "msg-3",
-    "author": "Emily Rodriguez",
+    "author": "Sweety",
     "relation": "Sister",
-    "text": "25 years of love, laughter, and beautiful memories! You've shown us what true partnership looks like. May your journey continue to be filled with happiness and love.",
+    "text": "So, so happy for you both! Wishing you a very happy 25 years of togetherness - and many more years filled with love, peace, laughter, and happiness.\n\nIt's always been such a blessing to have you both in our lives. Especially during the times when things weren't easy - you were always there with your warmth and care. The way you treat us whenever we come to Chennai, the way you make us feel at home... it truly means a lot. You've always given us that warmth we missed, and I'll forever be grateful for that.\n\nSo proud and so happy to see you both completing 25 beautiful years together. Here's to many, many more years of love and togetherness!❤️",
     "date": "2024-08-03T09:15:00Z",
     "curated": true
   },
   {
     "id": "msg-4",
-    "author": "David Thompson",
-    "relation": "College Friend",
-    "text": "I remember when you first met—the way you looked at each other, I knew it was something special. 25 years later, that spark is still there. Congratulations!",
-    "chapterId": "first-meeting",
+    "author": "Anu",
+    "relation": "Friend",
+    "text": "Dear Sai & Yamini. My heartfelt congratulations on your 25th Anniversary.\n\nSai is always a very friendly person who is always ready to lend a hand at a moment's notice. Yamini has inculcated excellent value systems in her kids. Particularly I admire her resolve in keeping true to resolutions she had made in the past.\n\nI wish them many years of love, togetherness and prosperity. God bless them.",
     "date": "2024-08-04T16:45:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-5",
-    "author": "Lisa Anderson",
-    "relation": "Neighbor",
-    "text": "Happy Anniversary! Your love story is a beautiful reminder that true love exists and grows stronger with time. Wishing you both continued happiness!",
+    "author": "Frooty",
+    "relation": "Friend",
+    "text": "Hi Pedamma and Pedayya,\n\nWishing you both a very Happy and happiest 25th wedding anniversary! 💕💖❤️💗\n\nEvery moment we've spent with you in Chennai is as special as you both are. You always make us feel so loved and cherished whenever we visit the effort you put into that truly means a lot.\n\nI still remember staying with you for almost a month four years ago not once did I feel like an outsider. You gave me the same love and warmth you show to Krupa and Kummi, and I honestly have no words to express how much that means to me.\n\nCounting down already for your 50th wedding anniversary! 😄\n\nAnd thank you for all the jewels you have giftes us with till now 🤭\n\nLove youuuuuuuu both 💕 specially pedamma❤️",
     "date": "2024-08-05T11:20:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-6",
-    "author": "Robert Williams",
-    "relation": "Cousin",
-    "text": "25 years of building a life together—what an achievement! Your commitment to each other through thick and thin is truly admirable. Here's to many more wonderful years!",
-    "chapterId": "milestones",
+    "author": "G Pandu Raja Gupta",
+    "relation": "Friend",
+    "text": "Congratulations on completing 25 years of togetherness. It makes me very happy to see how far you both have come and the life you have built with understanding, care, and respect for each other.\n\nMay God bless you both with good health, happiness, and many more years of peace and companionship. Always stay united and keep supporting each other the way you have all these years.\n\nWishing you a very happy 25th wedding anniversary.",
     "date": "2024-08-06T13:10:00Z",
     "curated": true
   },
   {
     "id": "msg-7",
-    "author": "Jennifer Martinez",
+    "author": "Suni",
     "relation": "Friend",
-    "text": "Congratulations on this incredible milestone! Your love has always been evident to everyone around you. May the next 25 years be even more amazing!",
+    "text": "Hearty wishes to both of you Yamini akkaya d Sai bava on your 25th wedding anniversary.🥰\n\nMay your life be blessed by God and filled with more love and happiness.",
     "date": "2024-08-07T15:30:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-8",
-    "author": "James Wilson",
-    "relation": "Work Colleague",
-    "text": "Happy 25th Anniversary! It's been wonderful to see your partnership flourish over the years. Your love story is truly inspiring. Best wishes for the future!",
+    "author": "Priya and Vinod",
+    "relation": "Family",
+    "text": "Wishing you a very Happy Anniversary Mama and Atta 💞May your love continue to grow stronger with each passing year. Your journey together is an inspiration to us all.",
     "date": "2024-08-08T10:00:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-9",
-    "author": "Patricia Brown",
-    "relation": "Aunt",
-    "text": "I've watched you two grow together over these 25 years, and it fills my heart with joy. Your love is a beautiful example for everyone. Congratulations!",
-    "chapterId": "wedding",
+    "author": "Babu",
+    "relation": "Friend",
+    "text": "Happiest Silver Jubilee Anniversary wishes dear Sai bro to u and your loved one 🤝",
     "date": "2024-08-09T12:00:00Z",
     "curated": true
   },
   {
     "id": "msg-10",
-    "author": "Christopher Lee",
+    "author": "Sai Chandrasekhar",
     "relation": "Friend",
-    "text": "25 years! What an incredible journey. Your love has weathered every storm and celebrated every joy. Here's to the next chapter of your beautiful story!",
+    "text": "Dear Sai and Yamini, At the outset, wishing you both a very happy 25th marriage anniversary. It is indeed a momentous occasion to rejoice, reflect and renew. You both are so different and yet so similar. Sai is the boisterous, fun loving, cracking jokes and a jolly go lucky fellow while Yamini is very silent, dignified and serving all the while. At the same time, both of you are so affectionate, Caring and loving towards all - truly embodying qualities that Swami encourages in all. You didn't stop there. You inculcated many of these qualities in your children too. Excellent parenting, not to talk of the whole family taking care of uncle and aunty. May Swami bless you with many more decades of togetherness and excellent health and happiness",
     "date": "2024-08-10T09:30:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-11",
-    "author": "Amanda Taylor",
-    "relation": "Sister-in-Law",
-    "text": "Happy Anniversary! You two are proof that true love exists and grows stronger every day. Wishing you endless happiness and beautiful memories ahead!",
-    "chapterId": "adventures",
+    "author": "Krishnakumar & fam",
+    "relation": "Family",
+    "text": "Dear Sai and Yamini,\n\nHappy 25th wedding anniversary. Sending you both so much love on this very special milestone. Kamala always lights up when she talks about the summers and years you all spent growing up together in Vetapalem. Those memories are truly some of her most cherished ones.\n\nWe always remember fondly your visit to Pune right after your wedding, the joy of those early days and the many Skype calls while you were in Botswana. Through every phase of life, the warmth, care and sincerity you bring to your relationships has never changed.\n\nWe are all so proud of your beautiful daughters and the way you have raised your family All of you are have rooted your lives in seva and Swamis teachings which are an inspiration to all of us. This is a testament to your partnership, your devotion and the purposeful way you both have built your life together.\n\nWishing you both many more years filled with good health, joy, togetherness, and the same gentle strength that has carried you through the last twenty-five years. May the coming chapters bring even more blessings, more laughter, and more memories that your hearts will hold close always.\n\nWith lots of love and warmest wishes always.",
     "date": "2024-08-11T14:20:00Z",
     "curated": true
   },
   {
     "id": "msg-12",
-    "author": "Thomas Garcia",
-    "relation": "Uncle",
-    "text": "Congratulations on 25 wonderful years together! Your partnership has been a joy to witness. May your love continue to flourish for many more years!",
+    "author": "Sujatha",
+    "relation": "Family",
+    "text": "Congratulations Sai and Yamini on your 25th wedding anniversary. Married for love n understanding bonded them into caring parents for 2 lovely daughters. Dear tambi n Yamini may u be blessed with peaceful n prosperous years ahead. A privilege to have such a couple in our family.",
     "date": "2024-08-12T11:15:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-13",
-    "author": "Nicole White",
+    "author": "Ramakrishna Vtm",
     "relation": "Friend",
-    "text": "25 years of love, laughter, and beautiful moments! You've created something truly special together. Here's to celebrating this amazing milestone!",
+    "text": "Hi Sai and Yaminee,\n\nWe wholeheartedly congratulate you both on your 25th wedding anniversary! You are a lovely couple, always smiling and showing such patience — a quality we all can learn from. Your children are also very loving and well-disciplined.\n\nOnce again, we wish you both a very happy anniversary and hope you have a wonderful time celebrating this special occasion with your family.\n\nMay Swamy bless you always with good health, happiness, and togetherness.",
     "date": "2024-08-13T16:00:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-14",
-    "author": "Daniel Harris",
-    "relation": "Best Man",
-    "text": "I had the honor of standing by your side on your wedding day, and I'm so proud to celebrate 25 years with you. Your love story is extraordinary!",
-    "chapterId": "wedding",
+    "author": "Vaishnavi",
+    "relation": "Family",
+    "text": "Dear Sai Mavayya and Yamini Athayya,\n\nWishing you both a very very happy 25th wedding anniversary and sending you love and happiness for the next 25 years and beyond!\n\nYou both have always been like parents to us, and we're very thankful for everything you have done for us and our parents. From being there for every milestone to even the smaller everyday moments, so many of our happy memories have you both in them.\n\nWe really miss living 15 minutes away from you but we feel assured that you are always there for us no matter what. And likewise, we will always be there for you all.\n\nHere's hoping Swami is always showering you both with blessings. We are excited to celebrate this special and momentous day with you all!",
     "date": "2024-08-14T10:30:00Z",
     "curated": true
   },
   {
     "id": "msg-15",
-    "author": "Michelle Clark",
-    "relation": "Maid of Honor",
-    "text": "From the wedding day to today, I've watched your love grow and deepen. 25 years is a testament to your commitment and love for each other. Congratulations!",
-    "chapterId": "wedding",
+    "author": "Suchitra",
+    "relation": "Friend",
+    "text": "My hearty 25 th wedding anniversary to you both, stay happy forever. Let your love grow stronger as you grow older.",
     "date": "2024-08-15T13:45:00Z",
     "curated": true
   },
   {
     "id": "msg-16",
-    "author": "Kevin Young",
-    "relation": "Friend",
-    "text": "Happy 25th Anniversary! Your journey together has been beautiful to witness. May the years ahead be filled with even more love and happiness!",
+    "author": "Roshini",
+    "relation": "Family",
+    "text": "Happy 25th wedding anniversary annayagaru and vodina. Thank you so much for all your support and love you showed me all these years. Hope you have a wonderful day with your family and loved ones.",
     "date": "2024-08-16T15:20:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-17",
-    "author": "Rachel King",
-    "relation": "Friend",
-    "text": "Congratulations on this incredible milestone! 25 years of partnership, love, and beautiful memories. You two are an inspiration to us all!",
+    "author": "Sriya",
+    "relation": "Family",
+    "text": "Happy 25th Wedding Anniversary to the beautiful couple 🥰 Athama and Mama! Wishing you many more years of love, laughter, and togetherness :)",
     "date": "2024-08-17T09:00:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-18",
-    "author": "Mark Scott",
-    "relation": "Brother-in-Law",
-    "text": "Happy Anniversary! Your love story has been a joy to be part of. Here's to 25 more years of happiness, adventures, and beautiful moments together!",
-    "chapterId": "adventures",
+    "author": "Omkar",
+    "relation": "Family",
+    "text": "Happy 25th Anniversary to my wonderful Sai mama and Yamini atta!! The love and values you've instilled in your two amazing daughters are a living testament to your partnership. Wishing you many many more years of happiness and togetherness!!",
     "date": "2024-08-18T12:30:00Z",
     "curated": true
   },
   {
     "id": "msg-19",
-    "author": "Laura Green",
-    "relation": "Friend",
-    "text": "25 years of building a life together—what an achievement! Your love and commitment to each other is truly remarkable. Congratulations!",
+    "author": "Pallavi",
+    "relation": "Family",
+    "text": "Hi Sai Maavayya and Yamini atta,\n\nI still remember the day you showed Yamini atta and said \"she is your atta\", I thought you were joking or trying to fool me (as you always does some pranks on us(me and Anusha) like making us believe coca-cola pond exists in coimbatore, they fetch in bottles and sell it,...so on) ...but later realised that was the truth and you told me first even before family members knew it!!.\n\nI wish you many more happy and wonderful years of love and togetherness ahead. Happy 25th wedding anniversary!!!!\n\n🎊🎊🎊💐🙏",
     "date": "2024-08-19T14:15:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-20",
-    "author": "Steven Adams",
-    "relation": "Cousin",
-    "text": "Happy 25th Anniversary! Your partnership has been a beautiful example of love, patience, and commitment. Wishing you many more wonderful years together!",
+    "author": "Anokhi",
+    "relation": "Friend",
+    "text": "25 years together… that's real teamwork!😜Congratulations to the most adorable couple.😍",
     "date": "2024-08-20T11:00:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-21",
-    "author": "Karen Baker",
-    "relation": "Aunt",
-    "text": "Congratulations on 25 amazing years! I've watched your love grow from the beginning, and it's been wonderful to see. Here's to many more years of happiness!",
-    "chapterId": "first-date",
+    "author": "Krishna Kumari (pappachi)",
+    "relation": "Family",
+    "text": "May God continue to shower His blessings on you both. You deserve all the happiness in the world. Happy 25 years!🥳🥳",
     "date": "2024-08-21T10:45:00Z",
     "curated": true
   },
   {
     "id": "msg-22",
-    "author": "Brian Nelson",
+    "author": "Ramakrishnan",
     "relation": "Friend",
-    "text": "25 years together—what an incredible journey! Your love story is inspiring and beautiful. May the next chapter be filled with even more joy and adventures!",
+    "text": "Wishing you both many more years of love, laughter, and togetherness. Happy Silver Jubilee!\n\n🥳🎉",
     "date": "2024-08-22T15:30:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-23",
-    "author": "Sandra Hill",
+    "author": "Chitra",
     "relation": "Friend",
-    "text": "Happy Anniversary! Your commitment to each other through all these years is truly admirable. Wishing you continued happiness and love!",
+    "text": "మీరిద్దరికీ హృదయపూర్వక 25వ వివాహ వార్షికోత్సవ శుభాకాంక్షలు. మీ బంధం మరింత బలపడుతూ, ఆనందం మరియు శాంతి ఎల్లప్పుడూ మీ ఇంటిని నింపాలని ఆశిం‍చుతున్నాను. 🎉🎂",
     "date": "2024-08-23T13:20:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-24",
-    "author": "Paul Carter",
-    "relation": "Friend",
-    "text": "Congratulations on 25 wonderful years! Your love has always been evident, and it's been a joy to witness your journey together. Here's to many more!",
+    "author": "Krishna charan ( kishan)",
+    "relation": "Family",
+    "text": "Dear Sai & Yamin\n\nMyself & Surekha are very thrilled to know that you are celebrating 25 years of togetherness on 7th December! Our heartiest congrats to both of you for this wonderful, fantastic journey! You both make a ever smiling, happy & contented couple! Both have a large heart, are very caring & loving & always eager to help anyone. You have endured the many ups & downs in this period but have handled all situations with great composure & aplomb! On this happy occasion, we pray Swami to bless you both in abundance so that you can carry on with this journey for long & keep you in good health & shape. Hope to be around to witness your next milestone of golden jubilee! Our love & best wishes for this very very beautiful & special day!❤️",
     "date": "2024-08-24T09:15:00Z",
-    "curated": false
+    "curated": true
   },
   {
     "id": "msg-25",
-    "author": "Donna Mitchell",
-    "relation": "Friend",
-    "text": "25 years of love, laughter, and beautiful memories! You've shown us what true partnership looks like. May your journey continue to be amazing!",
+    "author": "Thulasi",
+    "relation": "Family",
+    "text": "Happy 25 years Kanna and Alludu! Thondharga Alludu ravala.",
     "date": "2024-08-25T11:30:00Z",
-    "curated": false
+    "curated": true
+  },
+  {
+    "id": "msg-26",
+    "author": "Mithra",
+    "relation": "Family",
+    "text": "Happy 25 years Pedhamma and Pedaiya! 🥂 the love story that started a whole clan, and to next gen hoping we inherit some of the romance gene. 😉",
+    "date": "2024-08-26T10:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-27",
+    "author": "Lavanya Sagar",
+    "relation": "Family",
+    "text": "Happy 25th Wedding Anniversary Yamini Akkaiya and Sai Bava...Wish you both to continue to have lots of love, happiness and joyful memories together ❤️ 💖",
+    "date": "2024-08-27T14:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-28",
+    "author": "Sagar",
+    "relation": "Family",
+    "text": "Wishing you both a very happy 25th Wedding Anniversary ...Sai Anna nd Yamini Vodina...",
+    "date": "2024-08-28T16:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-29",
+    "author": "VENKAT RANGA",
+    "relation": "Family",
+    "text": "They often say the first 25 years of marriage are all about bringing up your kids. I must say, both of you have done a damn good job raising two wonderful children who are so rooted, who understand the family circumstances, and who adapt so well. That's truly a mission accomplished.\n\nAs you step into the next 25 years, I'm sure it's going to be even more fun, interesting and challenging—especially as you take on new roles: mom-in-law, dad-in-law, grandpa, and grandma.\n\nHere's me, wishing you both a very happy wedding anniversary and a beautiful journey for the next 25 years!",
+    "date": "2024-08-29T09:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-30",
+    "author": "APARNA",
+    "relation": "Family",
+    "text": "The last 10 years, from the moment I come into this house, you have always been so welcoming. You treat me as your own and never as an outsider, and that means the world to me.\n\nWishing you a very happy wedding anniversary, Vodina and Annayagaru!",
+    "date": "2024-08-30T11:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-31",
+    "author": "MEENAKSHI AND BADRI",
+    "relation": "Family",
+    "text": "Ever since the day we got you married and performed your kanyadhanam, we have always treated you as our own daughter. I often tell my two sons that they have the responsibility of seven sisters — and you hold a very special place in our family and in our hearts.\n\nWishing you a very happy wedding anniversary, Yamini and Sai Alludu",
+    "date": "2024-09-01T10:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-32",
+    "author": "Nags",
+    "relation": "Family",
+    "text": "Happy 25th Anniversary, Akkaiya and Bava! The teachings of Sai Baba — Love All, Serve All and Help Ever, Hurt Never — came alive for us through the way you both live your lives. Your love, your kindness, and your unwavering support have shaped us more than words can express. May your journey together continue to shine with the same warmth, grace, and devotion that you have always shared. Wishing you many more years of love and togetherness",
+    "date": "2024-09-02T14:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-33",
+    "author": "Vamsi",
+    "relation": "Family",
+    "text": "Happy 25th Anniversary, Dear Sai mama and Yamini atta. This is a silver jubilee for two golden hearts. You are an amazing couple and a shining example of love, laughter and friendship. Your fun‑loving spirit makes everyone feel at home. May you continue to keep dancing through life with great camaraderie, endless jokes and joyous smiles. Here's to the next 25 years of togetherness and mischief! 😀❤️\n\nఈ శుభసందర్భంలో మీకు ఆరోగ్యం, ఆనందం, ఐశ్వర్యం, సుఖసంతోషాలతో పాటు సాయి సాన్నిధ్యం లభించాలని స్వామిని ప్రార్ధిస్తున్నాం....🙏🙏",
+    "date": "2024-09-03T09:15:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-34",
+    "author": "Priya Vutukuri",
+    "relation": "Family",
+    "text": "Dear Haasya Ratna Sai Mama and Viral Vayyari Yamini Atta, Happy 25th Anniversary! Keep blessing the world with your cuteness and smiles <3 Wishing you 25 more and beyond <3<3",
+    "date": "2024-09-04T16:45:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-35",
+    "author": "Prasad Pallapothu and Bharathi Pallapothu",
+    "relation": "Family",
+    "text": "Dear Yamini and Sai,\n\nMee 25 savatsarala vyivahika bandham poorti ayina sandarbhamuga maa hridaya purvaka pelliroju subhakanshalu mariyu deevenalu💐💐💐💐💐💐💐💐",
+    "date": "2024-09-05T11:20:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-36",
+    "author": "Satish Babu Thummalapenta",
+    "relation": "Friend",
+    "text": "Congratulations on hitting the silver milestone—your love shines brighter every year.",
+    "date": "2024-09-06T13:10:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-37",
+    "author": "Sunny 😎",
+    "relation": "Family",
+    "text": "Happy 25th Anniversary, Bhaiyya and Vadina!\n\nReally feels amazing to see you both complete such a big milestone together\n\nEven after *25* years, the way you both vibe with each other is so natural and sweet.\n\nWishing you many more years filled with laughter, good health, and lots of beautiful moments ahead. Stay happy and keep spreading the same warmth and positivity around you. ❤️✨",
+    "date": "2024-09-07T15:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-38",
+    "author": "Venkat and Neeraja",
+    "relation": "Family",
+    "text": "Dear Sai and Yamini,\n\nOn this very special day and momentous milestone, wishing you both a very happy and blessed 25th wedding anniversary. We pray to Swami that the next 25 years of your marriage be filled with prosperity love and happiness.\n\nYou both have always been a great source of comfort, support and happiness for all of us.\n\nWishing you both the very best always.",
+    "date": "2024-09-08T10:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-39",
+    "author": "Sudhakar and Hyma",
+    "relation": "Family",
+    "text": "Hi my dear Sai & Yamini, our heartiest congratulations to both of you on completing 25 years of togetherness. During this long journey, you both must have faced many moments of Love, complaints, stress, ups & downs etc etc etc. Yet, you both sailed through all these phases together to reach this milestone in the journey of life. It's needless to mention that the Invisible protective hand of Lord Sai was protecting and extending the handholding support whenever required throughout this journey.\n\nIn recognition of your unstinted faith and the resilience you both had shown, Swami gifted you with two wonderful Angels from his store house to light up your life. Your journey from hereon is going to be stress free and pleasant. Enjoy the journey ahead fully and be witnesses to the beautiful play of the Lord with renewed faith and commitment to be part of his Divine play.\n\nI remember our childhood days spent together in Vetapalem in the midst of accomplished parents and grandparents. Of course, you are much younger to me. We cherished the company of you and Yamini & your gifted Angels whenever we met in the recent years. On this memorable occasion, we wish both of you all the very best for the journey ahead.\n\nMay Swami shower His blessings on all your family members abundantly.\n\nJai Sairam",
+    "date": "2024-09-09T12:00:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-40",
+    "author": "Bhaskar Kavitha",
+    "relation": "Friend",
+    "text": "🙏Sairam🙏\n\nSai and Yamini are blessed children of Lord Sai Baba. They always live life with a smile, come what may. There smile and chuckling laughter is divine and is infectious, think of them it brings a smile onto everyone in whatever situation they are in and carry on life with a smile. They are always cool, loving, caring, affectionate, no grudges, no hatred, no airs on hardships of life. We are blessed for their loving friendship for almost 3 decades. Baba's blessings will be with them for ages to come. From the bottom of our heart we wish them a happy silver jubilee filled with love, joy, happiness and prosperity for many many years to come.\n\n🙏Sairam",
+    "date": "2024-09-10T09:30:00Z",
+    "curated": true
+  },
+  {
+    "id": "msg-41",
+    "author": "Datri",
+    "relation": "Family",
+    "text": "Happy 25th Wedding Anniversary, Pinni and Babai!\n\nYour 25-year journey together is a complete reminder of what love feels and looks like. It is a reminder of patience, love and strength that you have.\n\nI really like the way, both of you have always stood with me and the entire family as an epitome of strength and support.\n\nI can still reminish our summer holidays where we would spend days together at your place, which have turned into beautiful memories for now. May this milestone give more success, happiness, love and togetherness.\n\nWishing you the best for all the upcoming years!\n\nLove",
+    "date": "2024-09-11T14:20:00Z",
+    "curated": true
   }
 ]
