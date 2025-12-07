@@ -1,0 +1,10 @@
+# Videos folder
+# Add your video files here (mp4, webm, etc.)
+# The videos will be automatically picked up and displayed
+# 
+# Video file naming convention:
+# - Use descriptive names like: video-1.mp4, video-2.mp4, etc.
+# - Or use author names: sarah-johnson.mp4, michael-chen.mp4, etc.
+# 
+# The videos.json file maps these videos to their metadata
+

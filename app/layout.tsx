@@ -31,16 +31,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Generate className consistently to avoid hydration mismatch
   const bodyClassName = [
     geistSans.variable,
     geistMono.variable,
     dancingScript.variable,
     'antialiased'
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <html lang="en">
-      <body className={bodyClassName}>
+      <body className={bodyClassName} suppressHydrationWarning>
         {children}
       </body>
     </html>

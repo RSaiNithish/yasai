@@ -1,14 +1,14 @@
 'use client';
 
-import { motion, useScroll, useTransform, useMotionValue, animate, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, animate, AnimatePresence, useMotionValueEvent } from 'framer-motion';
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { fadeIn, slideUp, staggerContainer, textReveal, messageTransition } from '@/lib/animations';
-import { getMessages } from '@/lib/data';
+import { getMessages, getVideos, getAudios } from '@/lib/data';
 import MessageCard from '@/components/messages/MessageCard';
 import MessageModal from '@/components/messages/MessageModal';
-import { Message } from '@/types';
+import { Message, Video, Audio } from '@/types';
 
 export default function Home() {
   const [password, setPassword] = useState('');
@@ -18,14 +18,19 @@ export default function Home() {
   const [zoomTriggered, setZoomTriggered] = useState(false);
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [visibleMessageIndex, setVisibleMessageIndex] = useState(0);
+  const [messagesScrollProgress, setMessagesScrollProgress] = useState(0);
+  const [audioScrollProgress, setAudioScrollProgress] = useState(0);
   const sitePassword = process.env.NEXT_PUBLIC_SITE_PASSWORD || '';
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const audioSectionRef = useRef<HTMLDivElement>(null);
   const zoomProgress = useMotionValue(0);
   
-  // Get messages for embedded messages page
+  // Get messages, videos, and audio for embedded messages page
   const allMessages = getMessages();
+  const allVideos = getVideos();
+  const allAudios = getAudios();
   const sortedMessages = useMemo(() => {
     return [...allMessages].sort((a, b) => {
       const dateA = new Date(a.date).getTime();
@@ -55,7 +60,7 @@ export default function Home() {
   // Combine scroll progress with auto zoom progress
   const combinedProgress = useTransform(
     [scrollYProgress, zoomProgress],
-    ([scroll, auto]) => Math.max(scroll, auto)
+    ([scroll, auto]: [number, number]) => Math.max(scroll, auto)
   );
 
       // Phase 1: Landing page visible (0 to 0.1 scroll)
@@ -91,13 +96,14 @@ export default function Home() {
       // LOVE stays visible during zoom
       const loveOpacity = useTransform(combinedProgress, [0, 0.1, 0.5], [1, 1, 0]);
 
-  // Track scroll in messages container to update visible message
+  // Track scroll in messages container to update visible message and calculate scroll progress
   useEffect(() => {
     const handleScroll = () => {
       if (!messagesContainerRef.current) return;
       const container = messagesContainerRef.current;
       const scrollTop = container.scrollTop;
       const sectionHeight = container.clientHeight;
+      const totalHeight = sortedMessages.length * sectionHeight;
       
       // Calculate which section is currently in view
       const currentSection = Math.round(scrollTop / sectionHeight);
@@ -109,6 +115,10 @@ export default function Home() {
       if (newIndex !== visibleMessageIndex && newIndex >= 0 && newIndex < sortedMessages.length) {
         setVisibleMessageIndex(newIndex);
       }
+      
+      // Calculate scroll progress (0 to 1, where 1 means scrolled to the last message)
+      const progress = Math.min(scrollTop / (totalHeight - sectionHeight), 1);
+      setMessagesScrollProgress(progress);
     };
 
     const container = messagesContainerRef.current;
@@ -118,6 +128,28 @@ export default function Home() {
       return () => container.removeEventListener('scroll', handleScroll);
     }
   }, [sortedMessages.length, visibleMessageIndex]);
+
+  // Track scroll for audio section to transition to videos
+  useEffect(() => {
+    const handlePageScroll = () => {
+      if (!audioSectionRef.current) return;
+      const audioSection = audioSectionRef.current;
+      const rect = audioSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate how much of the audio section has been scrolled past
+      // When audio section is at the top of viewport, progress is 0
+      // When audio section is completely scrolled past, progress is 1
+      const scrollPast = Math.max(0, windowHeight - rect.top);
+      const audioHeight = rect.height;
+      const progress = Math.min(scrollPast / (audioHeight + windowHeight), 1);
+      setAudioScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handlePageScroll, { passive: true });
+    handlePageScroll();
+    return () => window.removeEventListener('scroll', handlePageScroll);
+  }, [allAudios.length]);
 
   // Generate particles only on client side to avoid hydration mismatch
   useEffect(() => {
@@ -703,9 +735,10 @@ export default function Home() {
           />
         </div>
 
-        {/* Messages Page Header */}
+        {/* Messages Page Header - Hidden */}
         <motion.header
-          className="sticky top-0 z-50 glass border-b border-white/20 px-8 py-6"
+          className="sticky top-0 z-50 glass border-b border-white/20 px-8 py-6 hidden"
+          style={{ display: 'none' }}
         >
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <Link href="/" className="text-lg font-semibold text-neutral-700 hover:text-neutral-900 transition-colors flex items-center gap-2">
@@ -726,8 +759,8 @@ export default function Home() {
         </motion.header>
 
         {/* Messages Page Main Content */}
-        <div className="max-w-7xl mx-auto px-8 py-16 min-h-full">
-          <motion.div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-8 py-16 min-h-full flex flex-col items-center">
+          <motion.div className="text-center mb-16 w-full">
             <motion.h1
               className="text-7xl md:text-8xl font-bold text-neutral-900 mb-6 tracking-tight"
             >
@@ -743,7 +776,7 @@ export default function Home() {
           {/* Messages List - Same structure as messages page */}
           <div
             ref={messagesContainerRef}
-            className="relative h-[80vh] overflow-y-scroll scrollbar-hide snap-y snap-mandatory"
+            className="relative h-[80vh] overflow-y-scroll scrollbar-hide snap-y snap-mandatory w-full max-w-6xl"
             style={{ scrollSnapType: 'y mandatory' }}
           >
             {sortedMessages.map((message, index) => {
@@ -752,13 +785,13 @@ export default function Home() {
               return (
                 <section
                   key={message.id}
-                  className="h-[80vh] snap-start snap-always flex items-center justify-center px-4"
+                  className="h-[80vh] snap-start snap-always flex items-center justify-center px-2 md:px-4 w-full"
                 >
                   <motion.div
                     variants={messageTransition}
                     initial="initial"
                     animate={isVisible ? "animate" : "exit"}
-                    className="w-full max-w-5xl"
+                    className="w-full max-w-6xl mx-auto"
                   >
                     {isVisible && (
                       <MessageCard
@@ -806,6 +839,149 @@ export default function Home() {
                 />
               ))}
             </div>
+          )}
+
+          {/* Audio Messages Section - After Text Messages */}
+          {allAudios && allAudios.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="mt-32 md:mt-40 mb-24 w-full max-w-6xl"
+            >
+              <motion.div
+                className="text-center mb-24 md:mb-32 w-full"
+              >
+                <motion.h2
+                  className="text-6xl md:text-7xl font-bold text-neutral-900 mb-6 tracking-tight"
+                >
+                  Audio Messages
+                </motion.h2>
+                <motion.p
+                  className="text-xl text-neutral-600 font-light"
+                >
+                  Voice wishes from loved ones
+                </motion.p>
+              </motion.div>
+
+              {/* Audio Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                {allAudios.map((audio, index) => (
+                  <motion.div
+                    key={audio.id}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                    className="flex-shrink-0 w-full"
+                  >
+                    <div className="glass-soft rounded-3xl border border-white/30 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group p-8 md:p-10 w-full">
+                      {/* Audio Player */}
+                      <div className="w-full">
+                        <audio
+                          controls
+                          className="w-full"
+                          preload="metadata"
+                        >
+                          <source src={encodeURI(audio.audioUrl)} type="audio/mpeg" />
+                          <source src={encodeURI(audio.audioUrl)} type="audio/mp3" />
+                          <source src={encodeURI(audio.audioUrl)} type="audio/wav" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Videos Section - After Audio Messages */}
+          {allVideos && allVideos.length > 0 && (
+            <motion.div
+              className="mt-32 md:mt-40 mb-24 w-full max-w-6xl"
+              style={{
+                opacity: useTransform(() => {
+                  // Reveal videos when audio is scrolled past
+                  return Math.min(1, Math.max(0, (audioScrollProgress - 0.5) * 2));
+                }),
+                filter: useTransform(() => {
+                  // Start with blur, remove as we reveal
+                  const blur = Math.max(0, 8 - audioScrollProgress * 16);
+                  return `blur(${blur}px)`;
+                }),
+                pointerEvents: useTransform(() => {
+                  // Disable interaction when hidden
+                  const opacity = Math.min(1, Math.max(0, (audioScrollProgress - 0.5) * 2));
+                  return opacity > 0.1 ? 'auto' : 'none';
+                }),
+              }}
+            >
+              <motion.div
+                className="text-center mb-24 md:mb-32 w-full"
+              >
+                <motion.h2
+                  className="text-6xl md:text-7xl font-bold text-neutral-900 mb-6 tracking-tight"
+                >
+                  Video Messages
+                </motion.h2>
+                <motion.p
+                  className="text-xl text-neutral-600 font-light"
+                >
+                  Wishes from loved ones
+                </motion.p>
+              </motion.div>
+
+              {/* Video Cards Grid - Bigger cards, video only */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {allVideos.map((video, index) => (
+                  <motion.div
+                    key={video.id}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
+                    className="flex-shrink-0"
+                  >
+                    <div className="glass-soft rounded-3xl border border-white/30 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group cursor-pointer">
+                      {/* Video Player - Handles both vertical and horizontal, bigger */}
+                      <div className="relative w-full bg-black flex items-center justify-center overflow-hidden">
+                        {video.videoUrl ? (
+                          <video
+                            className="w-full h-auto max-h-[600px] object-contain"
+                            controls
+                            preload="metadata"
+                            poster={video.thumbnail || undefined}
+                            style={{ 
+                              maxWidth: '100%',
+                              height: 'auto',
+                            }}
+                          >
+                            <source src={encodeURI(video.videoUrl)} type="video/mp4" />
+                            <source src={encodeURI(video.videoUrl)} type="video/webm" />
+                            Your browser does not support the video tag.
+                          </video>
+                        ) : (
+                          <div className="relative w-full aspect-video bg-gradient-to-br from-rose-100 to-amber-100 flex items-center justify-center overflow-hidden min-h-[400px]">
+                            <div className="absolute inset-0 bg-gradient-to-br from-rose-200/20 to-amber-200/20" />
+                            <motion.div
+                              whileHover={{ scale: 1.15 }}
+                              className="relative z-10 w-20 h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg"
+                            >
+                              <svg
+                                className="w-10 h-10 text-rose-500 ml-1"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </motion.div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           )}
         </div>
 

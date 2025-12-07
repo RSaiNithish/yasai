@@ -1,0 +1,19 @@
+[
+  {
+    "id": "audio-1",
+    "author": "Audio Message 1",
+    "audioUrl": "/audio/audio1.mp3",
+    "durationSec": 0,
+    "date": "2024-12-07T14:54:00Z",
+    "transcript": "A heartfelt audio message for your 25th anniversary"
+  },
+  {
+    "id": "audio-2",
+    "author": "Audio Message 2",
+    "audioUrl": "/audio/audio2.mp3",
+    "durationSec": 0,
+    "date": "2024-12-07T14:54:00Z",
+    "transcript": "Wishing you both a wonderful 25th anniversary"
+  }
+]
+

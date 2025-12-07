@@ -64,7 +64,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
   };
 
   return (
-    <div className="perspective-1000 w-full max-w-5xl h-full flex items-center justify-center">
+    <div className="perspective-1000 w-full max-w-6xl h-full flex items-center justify-center">
       <motion.div
         className="relative w-full cursor-pointer"
         onMouseMove={handleMouseMove}
@@ -137,11 +137,12 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
                 className="text-center w-full"
               >
                 <motion.p
-                  className="text-neutral-700 text-2xl md:text-3xl leading-relaxed font-light whitespace-pre-line text-center"
+                  className="text-neutral-700 text-2xl md:text-3xl leading-relaxed font-light whitespace-pre-line"
                   style={{ 
                     wordBreak: 'break-word',
                     lineHeight: '1.8',
                     paddingBottom: '0.5em',
+                    textAlign: 'center',
                   }}
                 >
                   {message.text}

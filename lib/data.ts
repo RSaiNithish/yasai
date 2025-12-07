@@ -1,7 +1,8 @@
-import { Chapter, Message, Video } from '@/types';
+import { Chapter, Message, Video, Audio } from '@/types';
 import chaptersData from '@/data/chapters.json';
 import messagesData from '@/data/messages.json';
 import videosData from '@/data/videos.json';
+import audioData from '@/data/audio.json';
 
 export function getChapters(): Chapter[] {
   return chaptersData as Chapter[];
@@ -46,6 +47,14 @@ export function getVideos(): Video[] {
 
 export function getVideo(id: string): Video | undefined {
   return getVideos().find(video => video.id === id);
+}
+
+export function getAudios(): Audio[] {
+  return audioData as Audio[];
+}
+
+export function getAudio(id: string): Audio | undefined {
+  return getAudios().find(audio => audio.id === id);
 }
 
 export function getRelations(): string[] {

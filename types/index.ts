@@ -35,3 +35,12 @@ export interface Video {
   date: string; // ISO
   transcript?: string;
 }
+
+export interface Audio {
+  id: string;
+  author: string;
+  audioUrl: string; // URL
+  durationSec?: number;
+  date: string; // ISO
+  transcript?: string;
+}
