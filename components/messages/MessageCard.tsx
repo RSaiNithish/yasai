@@ -119,7 +119,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
 
           {/* Message Text Only - Scrollable */}
           <div 
-            className="relative z-10 overflow-y-auto scrollbar-hide flex flex-col items-center justify-center" 
+            className="relative z-10 overflow-y-auto scrollbar-hide" 
             style={{ 
               padding: '4rem 5rem',
               paddingBottom: '5rem',
@@ -129,13 +129,12 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex flex-col items-center justify-center w-full py-8" style={{ minHeight: 'fit-content', width: '100%' }}>
+            <div className="flex flex-col items-center w-full py-8" style={{ minHeight: 'fit-content' }}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
                 className="text-center w-full"
-                style={{ width: '100%', textAlign: 'center' }}
               >
                 <motion.p
                   className="text-neutral-700 text-2xl md:text-3xl leading-relaxed font-light whitespace-pre-line text-center"
@@ -144,8 +143,6 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
                     lineHeight: '1.8',
                     paddingBottom: '0.5em',
                     textAlign: 'center',
-                    width: '100%',
-                    margin: '0 auto',
                   }}
                 >
                   {message.text}
