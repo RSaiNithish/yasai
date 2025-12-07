@@ -702,12 +702,12 @@ export default function Home() {
             <motion.h1
               className="text-7xl md:text-8xl font-bold text-neutral-900 mb-6 tracking-tight"
             >
-              Messages
+              Wishes
             </motion.h1>
             <motion.p
               className="text-xl text-neutral-600 font-light tracking-wide"
             >
-              Wishes from friends & family
+              from friends & family
             </motion.p>
           </motion.div>
 
