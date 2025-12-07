@@ -59,7 +59,7 @@ export default function Home() {
   // Combine scroll progress with auto zoom progress
   const combinedProgress = useTransform(
     [scrollYProgress, zoomProgress],
-    ([scroll, auto]: [number, number]) => Math.max(scroll, auto)
+    (values: number[]) => Math.max(values[0], values[1])
   );
 
       // Phase 1: Landing page visible (0 to 0.1 scroll)
