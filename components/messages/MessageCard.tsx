@@ -119,7 +119,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
 
           {/* Message Text Only - Scrollable */}
           <div 
-            className="relative z-10 overflow-y-auto scrollbar-hide" 
+            className="relative z-10 overflow-y-auto scrollbar-hide flex flex-col" 
             style={{ 
               padding: '4rem 5rem',
               paddingBottom: '5rem',
@@ -129,7 +129,7 @@ export default function MessageCard({ message, onClick, isFeatured = false }: Me
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex flex-col items-center justify-center min-h-full py-8">
+            <div className="flex flex-col items-center justify-center w-full py-8" style={{ minHeight: 'fit-content' }}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
